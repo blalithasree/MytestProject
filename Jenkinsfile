@@ -1,19 +1,12 @@
 pipeline {
-    agent any
-    tools{
-        jdk "jdk11"
-        maven "maven3"
+  agent {
+    docker { image 'node:16-alpine' }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
     }
-    stages {
-        stage('Git Checkout') {
-            steps {
-              echo "success"
-            }
-        }
-         stage('Compile') {
-            steps {
-              echo "this is maven test"
-            }  
-        }
-    }
+  }
 }
