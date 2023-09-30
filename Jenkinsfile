@@ -6,6 +6,7 @@ pipeline {
             steps {
               echo "success"
             }
+        }
          stage('Compile') {
             steps {
               sh "mvn clean compile -Dskiptests=true"
